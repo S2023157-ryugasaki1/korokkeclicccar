@@ -223,11 +223,11 @@ function SaveData(DataName, GameData,) {
     //babyの画像処理
     if (babyGet>=11){
       for(let i = 0; i < 10; i++){
-        Babyimg.innerHTML+='<img src="https://th.bing.com/th/id/R.56a9ecdad7e18a80e2273bac2a2da7aa?rik=glfCCgh%2byXEYJg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-T0YMLCl9tJM%2fU57C-AglCHI%2fAAAAAAAAhfg%2fXMNAUx3c_Is%2fs800%2fakachan_smile.png&ehk=7CQt%2bM4fMbUv136cAvHooqaZguSBl2cG8BHrJ3focTM%3d&risl=&pid=ImgRaw&r=0" width="10%" height="100%">';
+        Babyimg.innerHTML+='<img src="useimg/baby.png" width="10%" height="100%">';
       }
     }else{
       for (let l = 0; l < babyGet;l++){
-        Babyimg.innerHTML+='<img src="https://th.bing.com/th/id/R.56a9ecdad7e18a80e2273bac2a2da7aa?rik=glfCCgh%2byXEYJg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-T0YMLCl9tJM%2fU57C-AglCHI%2fAAAAAAAAhfg%2fXMNAUx3c_Is%2fs800%2fakachan_smile.png&ehk=7CQt%2bM4fMbUv136cAvHooqaZguSBl2cG8BHrJ3focTM%3d&risl=&pid=ImgRaw&r=0" width="10%" height="100%">';
+        Babyimg.innerHTML+='<img src="useimg/baby.png" width="10%" height="100%">';
       }
     }
   
@@ -331,7 +331,7 @@ function baby(){
         //真ん中に表示する処理[]
         if (babyGet<11){
             const img = document.getElementById("getBaby");
-            img.innerHTML+='<img src="https://th.bing.com/th/id/R.56a9ecdad7e18a80e2273bac2a2da7aa?rik=glfCCgh%2byXEYJg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-T0YMLCl9tJM%2fU57C-AglCHI%2fAAAAAAAAhfg%2fXMNAUx3c_Is%2fs800%2fakachan_smile.png&ehk=7CQt%2bM4fMbUv136cAvHooqaZguSBl2cG8BHrJ3focTM%3d&risl=&pid=ImgRaw&r=0" width="10%" height="100%">';
+            img.innerHTML+='<img src="useimg/baby.png" width="10%" height="100%">';
         }
     }
     document.getElementById("goukei").innerHTML=Math.trunc((goukei*10)/10)+"個";
