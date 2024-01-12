@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コロッケクリッカー</title>
+    <link rel="stylesheet" href="コロッケ.css">
+    <script src="コロッケ.js"></script>
+    <script src="shop.js"></script>
+    <script src="power.js"></script>
+    <script src="savedata.js"></script>
+</head>
+<body style="margin:0px;">
+    <div id = "gold"></div>
+    <button onclick="risetto()" id = "risetto">リセットボタンだよ 文字押して</button>
+    <!--一番左端の主にクリック、合計を表示する場所-->
+    <div id="firstBox" class="notmove">
+        <img id="title" src="useimg/title.png" alt="">
+        <div id = "goukeiBox">
+            <div id="goukei">0個</div>
+            <div id="everyS">毎秒: 0個</div>
+        </div>
+        <div id="clickBox">
+            <img  src="useimg/mainkorokke.png"  alt="" width="50%" height="50%" id="korokke" onclick="kurikku()">
+        </div>
+    </div>
+    <!--仕切り-->
+    <div class="border"></div>
+    <!--真ん中-->
+    <div id="secondBox">
+        <div id="various">所持物</div>
+        <div id="somethink">
+            <div id = "getBaby" class="getimg"></div>
+            <div class="border1"></div>
+            <div id = "getGrandmother" class="getimg"></div>
+            <div class="border1"></div>
+            <div id = "getFarm" class="getimg"></div>
+            <div class="border1"></div>
+            <div id = "getMine" class="getimg"></div>
+            <div class="border1"></div>
+            <div id = "getFactory" class="getimg"></div>
+            <div class="border1"></div>
+        </div>
+    </div>
+    <!--仕切り-->
+    <div class="border"></div>
+    <!--右端-->
+    <div id="therdBox">
+        <div id="power">power</div>
+        <div id = "powerBox">
+            <div id ="firstpower">
+                <!--<img class="power" src="https://www.sozai-library.com/wp-content/uploads/2015/07/5095.jpg"  onclick="firstPower()">
+                <div id="nedan">100</div>-->
+                <img id = "powerimg"src="" alt="">
+                <div id="powertext"></div>
+            </div>
+        </div>
+
+        <div id = "shop">Shop</div>
+        <!--baby購入-->
+        <div class="shop">
+            <div id = "babyinformation" onclick="baby()">
+                <div id ="babyne" class="ne" class="text">baby価格: 15en</div>
+                <div id ="babykazu" class="kazu" class="text">baby人数: 0人</div>
+            </div>
+            <div id="babygazou">
+                <img src="useimg/baby.png" width="52px" height="52px" onclick="babyinfo()">
+            </div>
+        </div>
+        <!--grandmother購入-->
+        <div class="shop" >
+            <div id = "grandmotherinformation" onclick="grandmother()">
+                <div id ="grandmotherne" class="ne" class="text" >grandmother価格: 100個</div>
+                <div id ="grandmotherkazu" class="kazu" class="text">grandmother人数: 0人</div>
+            </div>
+            <div id="grandmotherimg">
+                <img src="useimg/grandmother.png" width="52px" height="52px" onclick="grandmotherinfo()">
+            </div>
+        </div>
+        <!--farm購入-->
+        <div class="shop" >
+            <div id = "farminformation" onclick="farm()">
+                <div id ="farmne" class="ne" class="text">farm価格: 1100個</div>
+                <div id ="farmkazu" class="kazu" class="text">farm人数: 0人</div>
+            </div>
+            <div id="farmimg">
+                <img src="useimg/farm.png" width="52px" height="52px" onclick="farminfo()">
+            </div>
+        </div>
+        <!--mine購入-->
+        <div class="shop" >
+            <div id = "mineinformation" onclick="mine()">
+                <div id ="minene" class="ne" class="text">mine価格: 12000en</div>
+                <div id ="minekazu" class="kazu" class="text">mine人数: 0人</div>
+            </div>
+            <div id="minegazou">
+                <img src="useimg/mine.png" width="52px" height="52px" onclick="mineinfo()">
+            </div>
+        </div>
+
+        <!--factory購入-->
+        <div class="shop" >
+            <div id = "factoryinformation" onclick="factory()">
+                <div id ="factoryne" class="ne" class="text">factory価格: 130000en</div>
+                <div id ="factorykazu" class="kazu" class="text">factory人数: 0人</div>
+            </div>
+            <div id="factorygazou">
+                <img src="useimg/factory.png" width="52px" height="52px" onclick="factoryinfo()">
+            </div>
+        </div>
+
+
+        
+
+    </div>
+    <!--説明-->
+    <div id = "setumeibox"></div>
+    <script>
+        const powerId1 = document.getElementById("firstpower");
+        //const setumei=document.getElementById("setumei1");
+
+
+        setInterval(()=>{
+            power()
+            console.log(1)
+        },500);
+        const powerimg = document.querySelector('#powerimg');
+        const powertext = document.querySelector('#powertext');
+        
+        function power(){//画像および必要な個数を表示
+            if (PowerBought==1){
+                powerId1.innerHTML=`<img id="powerimg" src="useimg/power1.png" width="8%" height="8%" onclick="firstPower()">`;
+                powerId1.innerHTML+=`<div id="powertext">100</div>`;
+            }
+            if (PowerBought==2){
+                powerId1.innerHTML=`<img id="powerimg" src="useimg/power2.png" width="8%" height="8%" onclick="secondPower()">`;
+                powerId1.innerHTML+=`<div id="powertext">200</div>`;
+            }
+            if (PowerBought==3){
+                powerId1.innerHTML=`<img id="powerimg" src="useimg/power3.png" width="8%" height="8%" onclick="therdPower()">`;
+                powerId1.innerHTML+=`<div id="powertext">1000</div>`;
+            }
+            if (PowerBought==4){
+                powerId1.innerHTML=`<img id="powerimg" src="useimg/power4.png" width="3%" height="3%" onclick="yonPower()">`;
+                powerId1.innerHTML+=`<div id="powertext">5000</div>`;
+            }
+            if (PowerBought==5){
+                powerId1.innerHTML=`<img id="powerimg" src="useimg/power5.png" width="3%" height="3%" onclick="goPower()">`;
+                powerId1.innerHTML+=`<div id="powertext">12000</div>`;
+            }
+            if (PowerBought==6){
+                powerId1.innerHTML=`<img id="powerimg" src="useimg/power6.png" width="3%" height="3%" onclick="rokuPower()">`;
+                powerId1.innerHTML+=`<div id="powertext">60000</div>`;
+            }
+            if (PowerBought==7){
+                powerId1.innerHTML=`<img id="powerimg" src="useimg/power7.png" width="3%" height="3%" onclick="nanaPower()">`;
+                powerId1.innerHTML+=`<div id="powertext">120000</div>`;
+            }
+        }
+        
+        function firstPower(){//baby clickのパワー2倍
+            if(goukei>=100 && PowerBought==1){
+                oneClick=oneClick*2;
+                babypower=babypower*2;
+                goukei=goukei-100;
+                //document.querySelector('#firstpower').innerHTML ="" ;
+                PowerBought = 2;
+            }
+        }
+        function secondPower(){//baby clickのパワー2倍
+            if(goukei>=200 && PowerBought==2){
+                oneClick=oneClick*2;
+                babypower=babypower*2;
+                goukei=goukei-200;
+                document.querySelector('#firstpower').innerHTML ="" ;
+                PowerBought = 3;
+            }
+        }
+        function therdPower(){//baby clickのパワー2倍
+            if(goukei>=1000 && PowerBought==3){
+                oneClick=oneClick*3;
+                babypower=babypower*3;
+                goukei=goukei-1000;
+                document.querySelector('#firstpower').innerHTML ="" ;
+                PowerBought = 4;
+            }
+        }
+        function yonPower(){//baby clickのパワー2倍
+            if(goukei>=5000 && PowerBought==4){
+                babypower=babypower*2;
+                grandmotherpower=grandmotherpower*2;
+                goukei=goukei-1000;
+                document.querySelector('#firstpower').innerHTML ="" ;
+                PowerBought = 5;
+            }
+        }
+        function goPower(){//baby clickのパワー2倍
+            if(goukei>=12000 && PowerBought==5){
+                farmpower=farmpower*2;
+                goukei=goukei-12000;
+                document.querySelector('#firstpower').innerHTML ="" ;
+                PowerBought = 6;
+            }
+        }
+        function rokuPower(){//baby clickのパワー2倍
+            if(goukei>=60000 && PowerBought==6){
+                minepower=minepower*2;
+                goukei=goukei-60000;
+                document.querySelector('#firstpower').innerHTML ="" ;
+                PowerBought = 7;
+            }
+        }
+        function nanaPower(){//baby clickのパワー2倍
+            if(goukei>=120000 && PowerBought==7){
+                factorypower=factorypower*2;
+                goukei=goukei-120000;
+                document.querySelector('#firstpower').innerHTML ="" ;
+                PowerBought = 8;
+            }
+        }
+        function test(){
+            goukei+=goukei*1.5;
+            document.getElementById("gold").innerHTML="";
+        }
+
+
+        var info=0;
+        const first=document.getElementById("firstBox");
+        const second=document.getElementById("secondBox");
+        const therd=document.getElementById("therdBox");
+        const setumei=document.getElementById("setumeibox");
+        first.style.width="30%";
+        second.style.width="44%";
+        therd.style.width="26%";
+        setumei.style.height="0%";
+        setumei.style.width="0%";
+
+        function babyinfo(){
+            
+            if (info == 0){
+                first.style.width="28%";
+                second.style.width="30%";
+                therd.style.width="22%";
+                setumei.style.height="100%";
+                setumei.style.width="20%";
+                setumei.innerHTML='<img id = "setumei" src="useimg/babyinfo.png"></img>';
+                info=1;
+            }else if (info ==1){
+                first.style.width="30%";
+                second.style.width="44%";
+                therd.style.width="26%";
+                setumei.style.height="0%";
+                setumei.style.width="0%";
+                setumei.innerHTML="";
+                info=0;
+            }
+
+        }
+        function grandmotherinfo(){
+            
+            if (info == 0){
+                first.style.width="28%";
+                second.style.width="30%";
+                therd.style.width="22%";
+                setumei.style.height="100%";
+                setumei.style.width="20%";
+                setumei.innerHTML='<img id = "setumei" src="useimg/grandmotherinfo.png"></img>';
+                info=1;
+            }else if (info ==1){
+                first.style.width="30%";
+                second.style.width="44%";
+                therd.style.width="26%";
+                setumei.style.height="0%";
+                setumei.style.width="0%";
+                setumei.innerHTML="";
+                info=0;
+            }
+        }
+        function mineinfo(){
+            
+            if (info == 0){
+                first.style.width="28%";
+                second.style.width="30%";
+                therd.style.width="22%";
+                setumei.style.height="100%";
+                setumei.style.width="20%";
+                setumei.innerHTML='<img id = "setumei" src="useimg/mineinfo.png"></img>';
+                info=1;
+            }else if (info ==1){
+                first.style.width="30%";
+                second.style.width="44%";
+                therd.style.width="26%";
+                setumei.style.height="0%";
+                setumei.style.width="0%";
+                setumei.innerHTML="";
+                info=0;
+            }
+        }
+        function farminfo(){
+            
+            if (info == 0){
+                first.style.width="28%";
+                second.style.width="30%";
+                therd.style.width="22%";
+                setumei.style.height="100%";
+                setumei.style.width="20%";
+                setumei.innerHTML='<img id = "setumei" src="useimg/farminfo.png"></img>';
+                info=1;
+            }else if (info ==1){
+                first.style.width="30%";
+                second.style.width="44%";
+                therd.style.width="26%";
+                setumei.style.height="0%";
+                setumei.style.width="0%";
+                setumei.innerHTML="";
+                info=0;
+            }
+        }
+        function factoryinfo(){
+            
+            if (info == 0){
+                first.style.width="28%";
+                second.style.width="30%";
+                therd.style.width="22%";
+                setumei.style.height="100%";
+                setumei.style.width="20%";
+                setumei.innerHTML='<img id = "setumei" src="useimg/factoryinfo.png"></img>';
+                info=1;
+            }else if (info ==1){
+                first.style.width="30%";
+                second.style.width="44%";
+                therd.style.width="26%";
+                setumei.style.height="0%";
+                setumei.style.width="0%";
+                setumei.innerHTML="";
+                info=0;
+            }
+        }
+
+        
+
+    </script>
+</body>
+</html>
