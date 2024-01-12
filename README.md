@@ -10,6 +10,6 @@ Chrome以外での動作は保証されておりません。
 
 ## 開発者
 作成者　　1年AB探求9班
-所属　　　龍ケ崎第一高等学校
+所属　　　竜ヶ崎第一高等学校
 E-mail　　S2023135.suzuki.yushin@ryugasaki1-h.ibk.ed.jp
 
