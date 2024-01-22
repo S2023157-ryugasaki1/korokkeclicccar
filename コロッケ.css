@@ -18,6 +18,12 @@ body{
     left: 1000px;
     top: 100px;
 }
+#resetto{
+    backgroundcolor: black;
+    color: red;
+    width:1vw;
+    height:1vw;
+}
 #gold1{
     position:absolute;
     width: 130px;
