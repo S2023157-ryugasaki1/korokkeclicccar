@@ -5,6 +5,7 @@
         var farmBasic=1100;
         var mineBasic=12000;
         var factoryBasic=130000;
+        var shrineBasic=1400000;
         //babyの種族値var babypower = 0.1;
         //grandmotherの種族値var grandmotherpower = 1;セーブ頼む
         //farmの種族値var farmpower=8;
@@ -114,4 +115,25 @@
             }
             document.getElementById("goukei").innerHTML=Math.trunc((goukei*10)/10)+"個";
         }
+
+       function shrine(){
+            if(Math.floor(1.15**shrineGet*shrineBasic)<=goukei){
+                //買値
+                goukei=goukei-Math.floor(1.15**shrineGet*shrineBasic);
+                //babyの数を増やす
+                shrineGet+=1;
+                //everyS+=0.1;
+                everyS=add();
+                document.getElementById("shrinene").innerHTML="shrine価格: "+Math.floor(1.15**shrineGet*shrineBasic)+"個";
+                document.getElementById("shrinekazu").innerHTML="shrine人数: "+shrineGet+"個";
+                //document.getElementById("everyS").innerHTML="毎秒: "+Math.round(everyS)+"個";
+                //真ん中に表示する処理[]
+                if (shrineGet<11){
+                    const img = document.getElementById("getShrine");
+                    img.innerHTML+='<img src="useimg/shrine.png" width="10%" height="100%">';
+                }
+            }
+            document.getElementById("goukei").innerHTML=Math.trunc((goukei*10)/10)+"個";
+        }
+
         
