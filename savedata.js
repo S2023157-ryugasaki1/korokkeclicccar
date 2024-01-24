@@ -12,9 +12,8 @@ function risetto(){
   minepower = 0;
   factoryGet = 0;
   factorypower =0;
-  shrineGet = 0;
-  shrinepower=0:
   PowerBought = 0;
+  
 }
 // ゲームデータを保存する関数
 function SaveData(DataName, GameData,) {
@@ -46,8 +45,6 @@ mineGet =Number(localStorage.getItem('SaveData_mineGet'));
 minepower =Number(localStorage.getItem('SaveData_minepower'));
 factoryGet =Number(localStorage.getItem('SaveData_factoryGet'));
 factorypower =Number(localStorage.getItem('SaveData_factorypower'));
-shrineGet =Number(localStorage.getItem('SaveData_shrineGet'));
-shrinepower =Number(localStorage.getItem('SaveData_shrinepower'));
 PowerBought = Number(localStorage.getItem('Savedata_PowerBought'));
 console.log("Power "+PowerBought);
 console.log("goukei "+goukei);
@@ -148,13 +145,6 @@ setInterval(function () {
   }else{
     factorypower = 260;
     SaveData('SaveData_factorypower', factorypower);
-  }
-
-  if (shrinepower >= 1400){
-    SaveData('SaveData_shrinepower', shrinepower);
-  }else{
-    factorypower = 1400;
-    SaveData('SaveData_shrinepower', shrinepower);
   }
 
   if (PowerBought >= 1){
@@ -266,23 +256,6 @@ window.onload = function(){
   }else{
     for (let l = 0; l < factoryGet;l++){
       factoryimg.innerHTML+='<img src="useimg/factory.png" width="10%" height="100%">';
-    }
-  }
-
-  //shrine画像のID取得
-  const shrineimg = document.getElementById("getShrine");
-  console.log("Load shrine")
-  //factoryinformationの更新
-  document.getElementById("shrinene").innerHTML="shrine価格: "+Math.floor(1.15**shrineGet*shrineBasic)+"個";
-  document.getElementById("shrinekazu").innerHTML="shrine人数: "+shrineGet+"個";
-  //mineの画像処理
-  if (shrineGet>=11){
-    for(let i = 0; i < 10; i++){
-      shrineimg.innerHTML+='<img src="useimg/shrine.png" width="10%" height="100%">';
-    }
-  }else{
-    for (let l = 0; l < shrineGet;l++){
-      factoryimg.innerHTML+='<img src="useimg/shrine.png" width="10%" height="100%">';
     }
   }
 }
