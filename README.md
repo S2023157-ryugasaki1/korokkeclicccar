@@ -6,7 +6,7 @@ https://s2023157-ryugasaki1.github.io/korokkeclicccar/
 
 ## 動作環境
 本ゲームはPC向けに開発されたものです。
-Chrome以外での動作は保証されておりません。
+Chromeでのみ動作確認を行っています。
 
 
 ## 開発者
