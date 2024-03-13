@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>コロッケクリッカー</title>
-    <link rel="stylesheet" href="コロッケ.css">
-    <script src="コロッケ.js"></script>
+    <link rel="stylesheet" href="korokke.css">
+    <script src="korokke.js"></script>
     <script src="shop.js"></script>
     <script src="power.js"></script>
     <script src="savedata.js"></script>
+    <script src="function.js"></script>
 </head>
 <body style="margin:0px;">
     <div id = "gold"></div>
     <button onclick="risetto()" id = "risetto">リセットボタンだよ 文字押して</button>
+    <button onClick="rebyu()" id = "rebyu">レビュ  |フォ  |ムはこちら</button>
     <!--一番左端の主にクリック、合計を表示する場所-->
     <div id="firstBox" class="notmove">
         <img id="title" src="useimg/title.png" alt="">
@@ -40,6 +42,11 @@
             <div class="border1"></div>
             <div id = "getFactory" class="getimg"></div>
             <div class="border1"></div>
+            <div id = "getShrine" class="getimg"></div>
+            <div class="border1"></div>
+            <div id = "getMagic" class="getimg"></div>
+            <div class="border1"></div>
+
         </div>
     </div>
     <!--仕切り-->
@@ -49,73 +56,138 @@
         <div id="power">power</div>
         <div id = "powerBox">
             <div id ="firstpower">
-                <!--<img class="power" src="https://www.sozai-library.com/wp-content/uploads/2015/07/5095.jpg"  onclick="firstPower()">
-                <div id="nedan">100</div>-->
                 <img id = "powerimg"src="" alt="">
                 <div id="powertext"></div>
             </div>
         </div>
 
         <div id = "shop">Shop</div>
-        <!--baby購入-->
-        <div class="shop">
-            <div id = "babyinformation" onclick="baby()">
-                <div id ="babyne" class="ne" class="text">baby価格: 15en</div>
-                <div id ="babykazu" class="kazu" class="text">baby人数: 0人</div>
+            <!--baby購入-->
+            <span>
+                <div class="shop">
+                <div id = "babyinformation" onclick="baby()">
+                    <div id ="babyne" class="ne" class="text">baby価格: 15en</div>
+                    <div id ="babykazu" class="kazu" class="text">baby人数: 0人</div>
+                </div>
+                <div id="babygazou">
+                    <img src="useimg/baby.png" width="52px" height="52px" onclick="babyinfo()">
+                </div>
             </div>
-            <div id="babygazou">
-                <img src="useimg/baby.png" width="52px" height="52px" onclick="babyinfo()">
+            <!--grandmother購入-->
+            <div class="shop" >
+                <div id = "grandmotherinformation" onclick="grandmother()">
+                    <div id ="grandmotherne" class="ne" class="text" >grandmother価格: 100個</div>
+                    <div id ="grandmotherkazu" class="kazu" class="text">grandmother人数: 0人</div>
+                </div>
+                <div id="grandmotherimg">
+                    <img src="useimg/grandmother.png" width="52px" height="52px" onclick="grandmotherinfo()">
+                </div>
             </div>
-        </div>
-        <!--grandmother購入-->
-        <div class="shop" >
-            <div id = "grandmotherinformation" onclick="grandmother()">
-                <div id ="grandmotherne" class="ne" class="text" >grandmother価格: 100個</div>
-                <div id ="grandmotherkazu" class="kazu" class="text">grandmother人数: 0人</div>
+            <!--farm購入-->
+            <div class="shop" >
+                <div id = "farminformation" onclick="farm()">
+                    <div id ="farmne" class="ne" class="text">farm価格: 1100個</div>
+                    <div id ="farmkazu" class="kazu" class="text">farm人数: 0人</div>
+                </div>
+                <div id="farmimg">
+                    <img src="useimg/farm.png" width="52px" height="52px" onclick="farminfo()">
+                </div>
             </div>
-            <div id="grandmotherimg">
-                <img src="useimg/grandmother.png" width="52px" height="52px" onclick="grandmotherinfo()">
+            <!--mine購入-->
+            <div class="shop" >
+                <div id = "mineinformation" onclick="mine()">
+                    <div id ="minene" class="ne" class="text">mine価格: 12000en</div>
+                    <div id ="minekazu" class="kazu" class="text">mine人数: 0人</div>
+                </div>
+                <div id="minegazou">
+                    <img src="useimg/mine.png" width="52px" height="52px" onclick="mineinfo()">
+                </div>
             </div>
-        </div>
-        <!--farm購入-->
-        <div class="shop" >
-            <div id = "farminformation" onclick="farm()">
-                <div id ="farmne" class="ne" class="text">farm価格: 1100個</div>
-                <div id ="farmkazu" class="kazu" class="text">farm人数: 0人</div>
-            </div>
-            <div id="farmimg">
-                <img src="useimg/farm.png" width="52px" height="52px" onclick="farminfo()">
-            </div>
-        </div>
-        <!--mine購入-->
-        <div class="shop" >
-            <div id = "mineinformation" onclick="mine()">
-                <div id ="minene" class="ne" class="text">mine価格: 12000en</div>
-                <div id ="minekazu" class="kazu" class="text">mine人数: 0人</div>
-            </div>
-            <div id="minegazou">
-                <img src="useimg/mine.png" width="52px" height="52px" onclick="mineinfo()">
-            </div>
-        </div>
 
-        <!--factory購入-->
-        <div class="shop" >
-            <div id = "factoryinformation" onclick="factory()">
-                <div id ="factoryne" class="ne" class="text">factory価格: 130000en</div>
-                <div id ="factorykazu" class="kazu" class="text">factory人数: 0人</div>
+            <!--factory購入-->
+            <div class="shop" >
+                <div id = "factoryinformation" onclick="factory()">
+                    <div id ="factoryne" class="ne" class="text">factory価格: 130000en</div>
+                    <div id ="factorykazu" class="kazu" class="text">factory人数: 0人</div>
+                </div>
+                <div id="factorygazou">
+                    <img src="useimg/factory.png" width="52px" height="52px" onclick="factoryinfo()">
+                </div>
             </div>
-            <div id="factorygazou">
-                <img src="useimg/factory.png" width="52px" height="52px" onclick="factoryinfo()">
+
+            <!--shrine購入-->
+            <div class="shop" >
+                <div id = "shrineinformation" onclick="shrine()">
+                    <div id ="shrinene" class="ne" class="text">shrine価格: 140万en</div>
+                    <div id ="shrinekazu" class="kazu" class="text">shrine人数: 0人</div>
+                </div>
+                <div id="shrinegazou">
+                    <img src="useimg/shrine.png" width="52px" height="52px" onclick="shrineinfo()">
+                </div>
             </div>
-        </div>
-
-
+        <!--</div>-->
+        <!--<div id="secondpage" class="pagebox">-->
+            
+            <!--magic購入-->
+            <div class="shop" >
+                <div id = "magicinformation" onclick="magic()">
+                    <div id ="magicne" class="ne" class="text">magic価格: 2000万en</div>
+                    <div id ="magickazu" class="kazu" class="text">magic人数: 0人</div>
+                </div>
+                <div id="magicgazou">
+                    <img src="useimg/magic.png" width="52px" height="52px" onclick="magicinfo()">
+                </div>
+            </div>
+        </span>
         
-
     </div>
     <!--説明-->
     <div id = "setumeibox"></div>
+    
     <script>
+        /*back();
+        var page=1;
+        const maxpage=2;
+        const page1=document.getElementById("firstpage")
+        const page2=document.getElementById("secondpage")
+        function back(){
+            if (page != 1){
+                page-=1;
+            }
+            if (page==1){
+                page1.style.width="100%";
+                page1.style.height="48%";
+            }else{
+                page1.style.width="0%";
+                page1.style.height="0%";
+            }
+            if (page==2){
+                page2.style.width="100%";
+                page2.style.height="48%";
+            }else{
+                page2.style.width="0%";
+                page2.style.height="0%";
+            }
+        }
+        function go(){
+            if (page != maxpage){
+                page+=1;
+            }
+            if (page==1){
+                page1.style.width="100%";
+                page1.style.height="48%";
+            }else{
+                page1.style.width="0%";
+                page1.style.height="0%";
+            }
+            if (page==2){
+                page2.style.width="100%";
+                page2.style.height="48%";
+            }else{
+                page2.style.width="0%";
+                page2.style.height="0%";
+            }
+        }*/
         const powerId1 = document.getElementById("firstpower");
         //const setumei=document.getElementById("setumei1");
 
@@ -134,7 +206,7 @@
             }
             if (PowerBought==2){
                 powerId1.innerHTML=`<img id="powerimg" src="useimg/power2.png" width="8%" height="8%" onclick="secondPower()">`;
-                powerId1.innerHTML+=`<div id="powertext">200</div>`;
+                powerId1.innerHTML+=`<div id="powertext">500</div>`;
             }
             if (PowerBought==3){
                 powerId1.innerHTML=`<img id="powerimg" src="useimg/power3.png" width="8%" height="8%" onclick="therdPower()">`;
@@ -142,19 +214,19 @@
             }
             if (PowerBought==4){
                 powerId1.innerHTML=`<img id="powerimg" src="useimg/power4.png" width="3%" height="3%" onclick="yonPower()">`;
-                powerId1.innerHTML+=`<div id="powertext">5000</div>`;
+                powerId1.innerHTML+=`<div id="powertext">1万</div>`;
             }
             if (PowerBought==5){
                 powerId1.innerHTML=`<img id="powerimg" src="useimg/power5.png" width="3%" height="3%" onclick="goPower()">`;
-                powerId1.innerHTML+=`<div id="powertext">12000</div>`;
+                powerId1.innerHTML+=`<div id="powertext">12万</div>`;
             }
             if (PowerBought==6){
                 powerId1.innerHTML=`<img id="powerimg" src="useimg/power6.png" width="3%" height="3%" onclick="rokuPower()">`;
-                powerId1.innerHTML+=`<div id="powertext">60000</div>`;
+                powerId1.innerHTML+=`<div id="powertext">600万</div>`;
             }
             if (PowerBought==7){
                 powerId1.innerHTML=`<img id="powerimg" src="useimg/power7.png" width="3%" height="3%" onclick="nanaPower()">`;
-                powerId1.innerHTML+=`<div id="powertext">120000</div>`;
+                powerId1.innerHTML+=`<div id="powertext">1000万</div>`;
             }
         }
         
@@ -168,52 +240,76 @@
             }
         }
         function secondPower(){//baby clickのパワー2倍
-            if(goukei>=200 && PowerBought==2){
+            if(goukei>=500 && PowerBought==2){
                 oneClick=oneClick*2;
                 babypower=babypower*2;
-                goukei=goukei-200;
+                grandmotherpower=grandmotherpower*2;
+                goukei=goukei-500;
                 document.querySelector('#firstpower').innerHTML ="" ;
                 PowerBought = 3;
             }
         }
         function therdPower(){//baby clickのパワー2倍
             if(goukei>=1000 && PowerBought==3){
-                oneClick=oneClick*3;
-                babypower=babypower*3;
+                oneClick=oneClick*2;
+                babypower=babypower*2;
+                grandmotherpower=grandmotherpower*2;
+                farmpower=farmpower*2;
                 goukei=goukei-1000;
                 document.querySelector('#firstpower').innerHTML ="" ;
                 PowerBought = 4;
             }
         }
         function yonPower(){//baby clickのパワー2倍
-            if(goukei>=5000 && PowerBought==4){
+            if(goukei>=10000 && PowerBought==4){
+                oneClick=oneClick*2;
                 babypower=babypower*2;
                 grandmotherpower=grandmotherpower*2;
-                goukei=goukei-1000;
+                farmpower=farmpower*2;
+                minepower=minepower*2;
+                goukei=goukei-10000;
                 document.querySelector('#firstpower').innerHTML ="" ;
                 PowerBought = 5;
             }
         }
         function goPower(){//baby clickのパワー2倍
-            if(goukei>=12000 && PowerBought==5){
+            if(goukei>=120000 && PowerBought==5){
+                oneClick=oneClick*2;
+                babypower=babypower*2;
+                grandmotherpower=grandmotherpower*2;
                 farmpower=farmpower*2;
-                goukei=goukei-12000;
+                minepower=minepower*2;
+                factorypower=factorypower*2;
+                goukei=goukei-120000;
                 document.querySelector('#firstpower').innerHTML ="" ;
                 PowerBought = 6;
             }
         }
         function rokuPower(){//baby clickのパワー2倍
-            if(goukei>=60000 && PowerBought==6){
+            if(goukei>=600000 && PowerBought==6){
+                oneClick=oneClick*2;
+                babypower=babypower*2;
+                grandmotherpower=grandmotherpower*2;
+                farmpower=farmpower*2;
                 minepower=minepower*2;
-                goukei=goukei-60000;
+                factorypower=factorypower*2;
+                shrinepower=shrinepower*2;
+                goukei=goukei-600000;
                 document.querySelector('#firstpower').innerHTML ="" ;
                 PowerBought = 7;
             }
         }
         function nanaPower(){//baby clickのパワー2倍
-            if(goukei>=120000 && PowerBought==7){
+            if(goukei>=10000000 && PowerBought==7){
+                oneClick=oneClick*2;
+                babypower=babypower*2;
+                grandmotherpower=grandmotherpower*2;
+                farmpower=farmpower*2;
+                minepower=minepower*2;
                 factorypower=factorypower*2;
-                goukei=goukei-120000;
+                shrinepower=shrinepower*2;
+                magicpower=magicpower*2;
+                goukei=goukei-10000000;
                 document.querySelector('#firstpower').innerHTML ="" ;
                 PowerBought = 8;
             }
