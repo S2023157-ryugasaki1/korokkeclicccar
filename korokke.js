@@ -76,7 +76,7 @@
         }
 
         function rebyu(){
-            const url = "https://chat.google.com/dm/hzCi1gAAAAE/1Ujou0ZSF1s/1Ujou0ZSF1s?cls=10"
+            const url = "https://docs.google.com/forms/d/e/1FAIpQLScasdiUjNC3aZQRrxv2vJWQZsmcvDubhCj4kuGmXt4CgEvwjA/viewform?usp=sharing"
             window.open(url, '_blank')
         }
 
