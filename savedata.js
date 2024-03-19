@@ -2,24 +2,25 @@ function risetto(){
   let checkFlg = window.confirm("OKを押すとすべてのデータがリセットされます。本当にリセットしますか？");
   if(checkFlg ==true){
     goukei = 0;
-  sousuu = 0;
-  oneClick = 0;
-  babyGet = 0;
-  babypower = 0;
-  grandmotherGet = 0;
-  grandmotherpower = 0;
-  farmGet = 0;
-  farmpower = 0;
-  mineGet = 0;
-  minepower = 0;
-  factoryGet = 0;
-  factorypower =0;
-  shrineGet = 0;
-  shrinepower = 0;
-  magicGet = 0;
-  magicpower = 0; 
-  PowerBought = 0;
-  location.reload();
+    usecheat = 0;
+    sousuu = 0;
+    oneClick = 0;
+    babyGet = 0;
+    babypower = 0;
+    grandmotherGet = 0;
+    grandmotherpower = 0;
+    farmGet = 0;
+    farmpower = 0;
+    mineGet = 0;
+    minepower = 0;
+    factoryGet = 0;
+    factorypower =0;
+    shrineGet = 0;
+    shrinepower = 0;
+    magicGet = 0;
+    magicpower = 0; 
+    PowerBought = 0;
+    location.reload();
   }
 }
 // ゲームデータを保存する関数
@@ -40,6 +41,7 @@ function SaveData(DataName, GameData,) {
 
 //再読込時これらをロード
 goukei = Number(localStorage.getItem('SaveData_goukei'));
+usecheat = Number(localStorage.getItem('SaveData_usecheat'));
 sousuu = Number(localStorage.getItem('SaveData_sousuu'));
 oneClick = Number(localStorage.getItem('SaveData_oneClick'));
 babyGet = Number(localStorage.getItem('SaveData_babyGet'));
@@ -66,6 +68,17 @@ var saveInterval =500;
 // セーブを繰り返し実行
 setInterval(function () {
   // 各ゲームデータをセーブ
+
+  //アンチチート
+  if(goukei > 1000000){
+    maegoukei = Number(localStorage.getItem('SaveData_goukei'));
+    if(goukei > maegoukei * 10){
+      anticheat();
+      usecheat += 1;
+      SaveData('SaveData_usecheat', usecheat);
+      console.log("チート検出");
+    }
+  } 
 
   if (goukei >= 0){
   SaveData('SaveData_goukei', goukei);
@@ -318,5 +331,31 @@ window.onload = function(){
     for (let l = 0; l < factoryGet;l++){
       magicimg.innerHTML+='<img src="useimg/magic.png" width="10%" height="100%">';
     }
+  }
+}
+
+function anticheat(){
+  let checkFlg = window.confirm("ずるして揚げたコロッケは美味いか？OK押せばリセットできるぞ");
+  if(checkFlg ==true){
+    goukei = 0;
+    usecheat = 0;
+    sousuu = 0;
+    oneClick = 0;
+    babyGet = 0;
+    babypower = 0;
+    grandmotherGet = 0;
+    grandmotherpower = 0;
+    farmGet = 0;
+    farmpower = 0;
+    mineGet = 0;
+    minepower = 0;
+    factoryGet = 0;
+    factorypower =0;
+    shrineGet = 0;
+    shrinepower = 0;
+    magicGet = 0;
+    magicpower = 0; 
+    PowerBought = 0;
+    location.reload();
   }
 }
