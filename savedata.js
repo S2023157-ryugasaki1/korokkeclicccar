@@ -3,6 +3,7 @@ function risetto(){
   if(checkFlg ==true){
     goukei = 0;
     usecheat = 0;
+    SaveData('SaveData_usecheat', usecheat);
     sousuu = 0;
     oneClick = 0;
     babyGet = 0;
@@ -41,7 +42,6 @@ function SaveData(DataName, GameData,) {
 
 //再読込時これらをロード
 goukei = Number(localStorage.getItem('SaveData_goukei'));
-usecheat = 0;
 usecheat = Number(localStorage.getItem('SaveData_usecheat'));
 sousuu = Number(localStorage.getItem('SaveData_sousuu'));
 oneClick = Number(localStorage.getItem('SaveData_oneClick'));
