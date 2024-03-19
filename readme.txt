@@ -7,9 +7,8 @@ https://s2023157-ryugasaki1.github.io/korokkeclicccar/
 Note
 本ゲームはPC向けに開発されたものです。
 
-Ver.0.20β
-filename:2024.3.13fin
-codename:Version"kiyoshiro"
+Ver.0.21
+filename:2024.3.19fin
 
 Author
 作成者　　1年AB探求9班
