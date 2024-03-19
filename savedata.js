@@ -41,6 +41,7 @@ function SaveData(DataName, GameData,) {
 
 //再読込時これらをロード
 goukei = Number(localStorage.getItem('SaveData_goukei'));
+usecheat = 0;
 usecheat = Number(localStorage.getItem('SaveData_usecheat'));
 sousuu = Number(localStorage.getItem('SaveData_sousuu'));
 oneClick = Number(localStorage.getItem('SaveData_oneClick'));
