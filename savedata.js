@@ -219,7 +219,7 @@ window.onload = function(){
   const Babyimg = document.getElementById("getBaby");
   console.log("Load baby")
   //babyinformationの更新
-  document.getElementById("babyne").innerHTML="baby価格: "+N_exchange(Math.floor(1.15**babyGet*babyBasic),3)+"個";
+  document.getElementById("babyne").innerHTML="baby価格: "+N_exchange(Math.floor(1.15**babyGet*babyBasic),2)+"個";
   document.getElementById("babykazu").innerHTML="baby人数: "+N_exchange(babyGet,3)+"個";
   //babyの画像処理
   if (babyGet>=11){
@@ -236,7 +236,7 @@ window.onload = function(){
   const grandmotherimg = document.getElementById("getGrandmother");
   console.log("Load grandmother")
   //grandmotherinformationの更新
-  document.getElementById("grandmotherne").innerHTML="grandmother価格: "+N_exchange(Math.floor(1.15**grandmotherGet*grandmotherBasic),3)+"個";
+  document.getElementById("grandmotherne").innerHTML="grandmother価格: "+N_exchange(Math.floor(1.15**grandmotherGet*grandmotherBasic),2)+"個";
   document.getElementById("grandmotherkazu").innerHTML="grandmother人数: "+N_exchange(grandmotherGet,3)+"個";
   //grandmotherの画像処理
   if (grandmotherGet>=11){
@@ -253,7 +253,7 @@ window.onload = function(){
   const farmimg = document.getElementById("getFarm");
   console.log("Load farm")
   //farminformationの更新
-  document.getElementById("farmne").innerHTML="farm価格: "+N_exchange(Math.floor(1.15**farmGet*farmBasic),3)+"個";
+  document.getElementById("farmne").innerHTML="farm価格: "+N_exchange(Math.floor(1.15**farmGet*farmBasic),2)+"個";
   document.getElementById("farmkazu").innerHTML="farm人数: "+N_exchange(farmGet,3)+"個";
   //farmの画像処理
   if (farmGet>=11){
@@ -270,7 +270,7 @@ window.onload = function(){
   const mineimg = document.getElementById("getMine");
   console.log("Load mine")
   //mineinformationの更新
-  document.getElementById("minene").innerHTML="mine価格: "+N_exchange(Math.floor(1.15**mineGet*mineBasic),3)+"個";
+  document.getElementById("minene").innerHTML="mine価格: "+N_exchange(Math.floor(1.15**mineGet*mineBasic),2)+"個";
   document.getElementById("minekazu").innerHTML="mine人数: "+N_exchange(mineGet,3)+"個";
   //mineの画像処理
   if (mineGet>=11){
@@ -287,7 +287,7 @@ window.onload = function(){
   const factoryimg = document.getElementById("getFactory");
   console.log("Load factory")
   //factoryinformationの更新
-  document.getElementById("factoryne").innerHTML="factory価格: "+N_exchange(Math.floor(1.15**factoryGet*factoryBasic),3)+"個";
+  document.getElementById("factoryne").innerHTML="factory価格: "+N_exchange(Math.floor(1.15**factoryGet*factoryBasic),2)+"個";
   document.getElementById("factorykazu").innerHTML="factory人数: "+N_exchange(factoryGet,3)+"個";
   //factoryの画像処理
   if (factoryGet>=11){
@@ -304,7 +304,7 @@ window.onload = function(){
   const shrineimg = document.getElementById("getShrine");
   console.log("Load shrine")
   //shrineinformationの更新
-  document.getElementById("shrinene").innerHTML="shrine価格: "+N_exchange(Math.floor(1.15**shrineGet*shrineBasic),3)+"個";
+  document.getElementById("shrinene").innerHTML="shrine価格: "+N_exchange(Math.floor(1.15**shrineGet*shrineBasic),2)+"個";
   document.getElementById("shrinekazu").innerHTML="shrine人数: "+N_exchange(shrineGet,3)+"個";
   //shrineの画像処理
   if (shrineGet>=11){
@@ -321,7 +321,7 @@ window.onload = function(){
   const magicimg = document.getElementById("getMagic");
   console.log("Load magic")
   //factoryinformationの更新
-  document.getElementById("magicne").innerHTML="magic価格: "+N_exchange(Math.floor(1.15**magicGet*magicBasic),3)+"個";
+  document.getElementById("magicne").innerHTML="magic価格: "+N_exchange(Math.floor(1.15**magicGet*magicBasic),2)+"個";
   document.getElementById("magickazu").innerHTML="magic人数: "+N_exchange(magicGet,3)+"個";
   //magicの画像処理
   if (magicGet>=11){
