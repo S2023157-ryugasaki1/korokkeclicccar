@@ -340,6 +340,7 @@ function anticheat(){
   if(checkFlg ==true){
     goukei = 0;
     usecheat = 0;
+    SaveData('SaveData_usecheat', usecheat);
     sousuu = 0;
     oneClick = 0;
     babyGet = 0;
