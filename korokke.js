@@ -25,13 +25,13 @@
         }
     
         var gold=0;
-        var goldper=1500;
+        var goldper=4500;
         const goldId=document.getElementById("gold");   
         //秒毎増える
         setInterval(()=>{
             everyS=add();
-            goukei+=everyS/5;
-            sousuu+=everyS/5;
+            goukei+=everyS/20;
+            sousuu+=everyS/20;
             //document.getElementById("goukei").innerHTML=Math.trunc((goukei*10)/10)+"個";
             document.getElementById("goukei").innerHTML=N_exchange(goukei,3)+"個";
             document.getElementById("everyS").innerHTML="毎秒: "+N_exchange(everyS,3)+"個";
@@ -63,7 +63,7 @@
             }
 
 
-        },200);
+        },50);
         
         //クリックで合計を増やす
 
